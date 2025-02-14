@@ -1,0 +1,7 @@
+:8000 {
+	root * /srv
+	handle_path /example_docker_shiny/* {
+		reverse_proxy example_docker_shiny:9000
+	}
+	file_server
+}

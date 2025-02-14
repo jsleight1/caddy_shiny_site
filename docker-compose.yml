@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  example_docker_shiny:
+    image: jsleight1/example_docker_shiny:R4.4.2-latest
+    restart: unless-stopped
+  caddy:
+    image: caddy:2.3.0-alpine
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - example_docker_shiny
+
+volumes:
+  caddy_data:
+  caddy_config:
+
