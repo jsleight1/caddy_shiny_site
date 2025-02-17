@@ -4,6 +4,14 @@ services:
   example_docker_shiny:
     image: jsleight1/example_docker_shiny:R4.4.2-latest
     restart: unless-stopped
+  lgbf:
+    image: jsleight1/lgbf:R4.4.2-latest
+    restart: unless-stopped
+  example_database_shiny:
+    image: jsleight1/example_database_shiny:R4.4.2-latest
+    restart: unless-stopped
+    volumes:
+     - $dbpath:/home/app/data
   caddy:
     image: caddy:2.3.0-alpine
     restart: unless-stopped
@@ -16,6 +24,8 @@ services:
       - caddy_config:/config
     depends_on:
       - example_docker_shiny
+      - lgbf
+      - example_database_shiny
 
 volumes:
   caddy_data:

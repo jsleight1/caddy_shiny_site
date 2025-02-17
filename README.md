@@ -9,12 +9,24 @@ This is based on a series of tutorials found at:
 
 Shiny apps used are:
  - [example docker shiny](https://github.com/jsleight1/example_docker_shiny/tree/main)
+ - [lgbf](https://github.com/jsleight1/LGBF/tree/main)
+ - [example_database_shiny](https://github.com/jsleight1/example_database_shiny)
 
 The docker compose file is launched using
 
 ```
 docker compose up -d
 ```
+
+where .env is a local file:
+
+```
+dbpath=PATH_TO_DATABASE
+```
+
+`dbpath` is a path to the directory storing the ozone.duckdb database file 
+for [example_database_shiny](https://github.com/jsleight1/example_database_shiny) on
+your local machine.
 
 Shiny applications can then navigated to from:
 

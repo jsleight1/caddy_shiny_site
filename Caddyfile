@@ -3,5 +3,11 @@
 	handle_path /example_docker_shiny/* {
 		reverse_proxy example_docker_shiny:9000
 	}
+	handle_path /lgbf/* {
+		reverse_proxy lgbf:9001
+	}
+	handle_path /example_database_shiny/* {
+		reverse_proxy example_database_shiny:9003
+	}
 	file_server
 }
